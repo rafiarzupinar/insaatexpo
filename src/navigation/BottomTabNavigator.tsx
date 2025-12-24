@@ -44,7 +44,7 @@ const CustomTabBar = ({ state, descriptors, navigation }: any) => {
               case 'Tasks':
                 return 'check-square';
               case 'QuickAction':
-                return 'grid';
+                return 'plus';
               case 'Finance':
                 return 'dollar-sign';
               case 'Safety':
@@ -82,7 +82,7 @@ const CustomTabBar = ({ state, descriptors, navigation }: any) => {
                 <Icon
                   name={getIcon()}
                   size={20}
-                  color={isFocused ? colors.white : 'rgba(255,255,255,0.5)'}
+                  color={isFocused ? colors.primary : 'rgba(255,255,255,0.5)'}
                 />
               </View>
             </TouchableOpacity>
@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   iconContainerActive: {
-    backgroundColor: 'rgba(255,255,255,0.1)',
+    backgroundColor: 'rgba(255,127,80,0.15)',
   },
   centerButton: {
     marginHorizontal: spacing.xs,
