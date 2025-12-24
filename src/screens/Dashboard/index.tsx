@@ -248,6 +248,19 @@ const DashboardScreen = () => {
 
   const renderGenelTab = () => (
     <>
+      {/* Hero Image */}
+      <Card style={styles.imageCard}>
+        <Image
+          source={{ uri: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80' }}
+          style={styles.heroImage}
+          resizeMode="cover"
+        />
+        <View style={styles.heroOverlay}>
+          <Text style={styles.heroTitle}>Merkez Residence</Text>
+          <Text style={styles.heroSubtitle}>İnşaat Takip Sistemi</Text>
+        </View>
+      </Card>
+
       {/* Greeting & Weather */}
       <View style={styles.greetingRow}>
         <View style={styles.greetingLeft}>
@@ -1135,6 +1148,34 @@ const styles = StyleSheet.create({
   projectImage: {
     width: '100%',
     height: 200,
+  },
+  heroImage: {
+    width: '100%',
+    height: 180,
+  },
+  heroOverlay: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    padding: spacing.lg,
+    background: 'linear-gradient(transparent, rgba(0,0,0,0.7))',
+  },
+  heroTitle: {
+    fontSize: typography.fontSize.xl,
+    fontWeight: '700',
+    color: colors.white,
+    textShadowColor: 'rgba(0, 0, 0, 0.5)',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 3,
+  },
+  heroSubtitle: {
+    fontSize: typography.fontSize.sm,
+    color: 'rgba(255,255,255,0.9)',
+    marginTop: 2,
+    textShadowColor: 'rgba(0, 0, 0, 0.5)',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 3,
   },
   imageOverlay: {
     position: 'absolute',

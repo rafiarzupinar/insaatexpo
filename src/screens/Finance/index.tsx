@@ -8,6 +8,7 @@ import {
   Modal,
   TextInput,
   Alert,
+  Image,
 } from 'react-native';
 import { Feather as Icon } from '@expo/vector-icons';
 import Svg, { Circle } from 'react-native-svg';
@@ -276,6 +277,19 @@ const FinanceScreen = () => {
 
   const renderOverview = () => (
     <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
+      {/* Hero Image */}
+      <Card style={styles.heroCard}>
+        <Image
+          source={{ uri: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80' }}
+          style={styles.heroImage}
+          resizeMode="cover"
+        />
+        <View style={styles.heroOverlay}>
+          <Text style={styles.heroTitle}>Finansal Yönetim</Text>
+          <Text style={styles.heroSubtitle}>Bütçe ve harcama takibi</Text>
+        </View>
+      </Card>
+
       {/* Summary Cards */}
       <View style={styles.summaryRow}>
         <Card style={styles.summaryCard}>
@@ -820,6 +834,37 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     paddingHorizontal: spacing.sm,
+  },
+
+  // Hero Card
+  heroCard: {
+    padding: 0,
+    overflow: 'hidden',
+    borderRadius: borderRadius['2xl'],
+    marginTop: spacing.md,
+    marginBottom: spacing.sm,
+  },
+  heroImage: {
+    width: '100%',
+    height: 150,
+  },
+  heroOverlay: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    padding: spacing.md,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+  },
+  heroTitle: {
+    fontSize: typography.fontSize.lg,
+    fontWeight: '700',
+    color: colors.white,
+  },
+  heroSubtitle: {
+    fontSize: typography.fontSize.sm,
+    color: 'rgba(255,255,255,0.9)',
+    marginTop: 2,
   },
 
   // Summary Cards

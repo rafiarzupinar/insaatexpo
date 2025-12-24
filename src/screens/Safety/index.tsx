@@ -8,6 +8,7 @@ import {
   Modal,
   TextInput,
   Alert,
+  Image,
 } from 'react-native';
 import { Feather as Icon } from '@expo/vector-icons';
 import { Header, Card, TabBar } from '../../components/common';
@@ -391,6 +392,19 @@ const SafetyScreen = () => {
   // Render Kontrol Tab
   const renderKontrolTab = () => (
     <ScrollView style={styles.tabContent} showsVerticalScrollIndicator={false}>
+      {/* Hero Image */}
+      <Card style={styles.heroCard}>
+        <Image
+          source={{ uri: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=800&q=80' }}
+          style={styles.heroImage}
+          resizeMode="cover"
+        />
+        <View style={styles.heroOverlay}>
+          <Text style={styles.heroTitle}>İş Sağlığı ve Güvenliği</Text>
+          <Text style={styles.heroSubtitle}>Güvenli çalışma ortamı takibi</Text>
+        </View>
+      </Card>
+
       {/* Stats */}
       <View style={styles.statsRow}>
         <View style={[styles.statCard, { backgroundColor: colors.successLight }]}>
@@ -957,6 +971,36 @@ const styles = StyleSheet.create({
   tabContent: {
     flex: 1,
     padding: spacing.md,
+  },
+
+  // Hero Card
+  heroCard: {
+    padding: 0,
+    overflow: 'hidden',
+    borderRadius: borderRadius['2xl'],
+    marginBottom: spacing.md,
+  },
+  heroImage: {
+    width: '100%',
+    height: 150,
+  },
+  heroOverlay: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    padding: spacing.md,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+  },
+  heroTitle: {
+    fontSize: typography.fontSize.lg,
+    fontWeight: '700',
+    color: colors.white,
+  },
+  heroSubtitle: {
+    fontSize: typography.fontSize.sm,
+    color: 'rgba(255,255,255,0.9)',
+    marginTop: 2,
   },
 
   // Stats

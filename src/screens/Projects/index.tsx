@@ -481,6 +481,19 @@ const ProjectsScreen = () => {
           contentContainerStyle={styles.listContent}
           showsVerticalScrollIndicator={false}
         >
+          {/* Hero Image */}
+          <Card style={styles.heroCard}>
+            <Image
+              source={{ uri: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80' }}
+              style={styles.heroImage}
+              resizeMode="cover"
+            />
+            <View style={styles.heroOverlay}>
+              <Text style={styles.heroTitle}>Projeleriniz</Text>
+              <Text style={styles.heroSubtitle}>Tüm inşaat projelerinizi tek yerden yönetin</Text>
+            </View>
+          </Card>
+
           {/* Stats Summary */}
           <View style={styles.statsRow}>
             <View style={styles.statCard}>
@@ -551,6 +564,37 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background,
+  },
+
+  // Hero Card
+  heroCard: {
+    padding: 0,
+    overflow: 'hidden',
+    borderRadius: borderRadius['2xl'],
+    marginHorizontal: spacing.md,
+    marginTop: spacing.md,
+  },
+  heroImage: {
+    width: '100%',
+    height: 160,
+  },
+  heroOverlay: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    padding: spacing.lg,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+  },
+  heroTitle: {
+    fontSize: typography.fontSize.xl,
+    fontWeight: '700',
+    color: colors.white,
+  },
+  heroSubtitle: {
+    fontSize: typography.fontSize.sm,
+    color: 'rgba(255,255,255,0.9)',
+    marginTop: 4,
   },
 
   // Stats Row

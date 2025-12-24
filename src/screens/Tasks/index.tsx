@@ -9,6 +9,7 @@ import {
   TextInput,
   Dimensions,
   Alert,
+  Image,
 } from 'react-native';
 import { Feather as Icon } from '@expo/vector-icons';
 import Svg, { Rect, Line, Text as SvgText, G } from 'react-native-svg';
@@ -399,6 +400,19 @@ const TasksScreen = () => {
 
   const renderGanttView = () => (
     <View style={styles.ganttWrapper}>
+      {/* Hero Image */}
+      <Card style={styles.heroCard}>
+        <Image
+          source={{ uri: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80' }}
+          style={styles.heroImage}
+          resizeMode="cover"
+        />
+        <View style={styles.heroOverlay}>
+          <Text style={styles.heroTitle}>Görev Yönetimi</Text>
+          <Text style={styles.heroSubtitle}>Proje görevlerini takip edin</Text>
+        </View>
+      </Card>
+
       {/* Stats Row */}
       <View style={styles.statsRow}>
         <View style={styles.statItem}>
@@ -967,6 +981,38 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background,
+  },
+
+  // Hero Card
+  heroCard: {
+    padding: 0,
+    overflow: 'hidden',
+    borderRadius: borderRadius['2xl'],
+    marginHorizontal: spacing.md,
+    marginTop: spacing.md,
+    marginBottom: spacing.sm,
+  },
+  heroImage: {
+    width: '100%',
+    height: 150,
+  },
+  heroOverlay: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    padding: spacing.md,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+  },
+  heroTitle: {
+    fontSize: typography.fontSize.lg,
+    fontWeight: '700',
+    color: colors.white,
+  },
+  heroSubtitle: {
+    fontSize: typography.fontSize.sm,
+    color: 'rgba(255,255,255,0.9)',
+    marginTop: 2,
   },
 
   // Filters
