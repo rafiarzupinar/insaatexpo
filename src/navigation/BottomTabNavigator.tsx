@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, TouchableOpacity, Platform, Image } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, Platform } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Feather as Icon } from '@expo/vector-icons';
 import { colors, shadows, borderRadius, spacing } from '../constants/theme';
@@ -70,14 +70,6 @@ const CustomTabBar = ({ state, descriptors, navigation }: any) => {
             </TouchableOpacity>
           );
         })}
-
-        {/* User Avatar at the end */}
-        <TouchableOpacity style={styles.avatarButton} activeOpacity={0.7}>
-          <Image
-            source={{ uri: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80' }}
-            style={styles.avatar}
-          />
-        </TouchableOpacity>
       </View>
     </View>
   );
@@ -137,16 +129,6 @@ const styles = StyleSheet.create({
   },
   iconContainerActive: {
     backgroundColor: 'rgba(255,127,80,0.15)',
-  },
-  avatarButton: {
-    marginLeft: spacing.xs,
-  },
-  avatar: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    borderWidth: 2,
-    borderColor: 'rgba(255,255,255,0.2)',
   },
 });
 
