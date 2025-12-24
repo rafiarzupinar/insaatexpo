@@ -21,7 +21,6 @@ const CustomTabBar = ({ state, descriptors, navigation }: any) => {
       <View style={styles.tabBar}>
         {state.routes.map((route: any, index: number) => {
           const isFocused = state.index === index;
-          const isCenter = route.name === 'QuickAction';
 
           const onPress = () => {
             const event = navigation.emit({
@@ -43,8 +42,6 @@ const CustomTabBar = ({ state, descriptors, navigation }: any) => {
                 return 'layers';
               case 'Tasks':
                 return 'check-square';
-              case 'QuickAction':
-                return 'plus';
               case 'Finance':
                 return 'dollar-sign';
               case 'Safety':
@@ -55,21 +52,6 @@ const CustomTabBar = ({ state, descriptors, navigation }: any) => {
                 return 'circle';
             }
           };
-
-          if (isCenter) {
-            return (
-              <TouchableOpacity
-                key={route.key}
-                onPress={onPress}
-                style={styles.centerButton}
-                activeOpacity={0.8}
-              >
-                <View style={styles.centerButtonInner}>
-                  <Icon name={getIcon()} size={22} color={colors.white} />
-                </View>
-              </TouchableOpacity>
-            );
-          }
 
           return (
             <TouchableOpacity
@@ -101,9 +83,6 @@ const CustomTabBar = ({ state, descriptors, navigation }: any) => {
   );
 };
 
-// Placeholder screen for QuickAction
-const QuickActionScreen = () => <View />;
-
 const BottomTabNavigator = () => {
   return (
     <Tab.Navigator
@@ -116,16 +95,6 @@ const BottomTabNavigator = () => {
       <Tab.Screen name="Projects" component={ProjectsScreen} />
       <Tab.Screen name="Tasks" component={TasksScreen} />
       <Tab.Screen name="Finance" component={FinanceScreen} />
-      <Tab.Screen
-        name="QuickAction"
-        component={QuickActionScreen}
-        listeners={() => ({
-          tabPress: (e) => {
-            e.preventDefault();
-            // TODO: Open quick action modal
-          },
-        })}
-      />
       <Tab.Screen name="Safety" component={SafetyScreen} />
       <Tab.Screen name="Analytics" component={ReportsScreen} />
     </Tab.Navigator>
@@ -168,22 +137,6 @@ const styles = StyleSheet.create({
   },
   iconContainerActive: {
     backgroundColor: 'rgba(255,127,80,0.15)',
-  },
-  centerButton: {
-    marginHorizontal: spacing.xs,
-  },
-  centerButtonInner: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    backgroundColor: colors.primary,
-    alignItems: 'center',
-    justifyContent: 'center',
-    shadowColor: colors.primary,
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.4,
-    shadowRadius: 8,
-    elevation: 8,
   },
   avatarButton: {
     marginLeft: spacing.xs,
